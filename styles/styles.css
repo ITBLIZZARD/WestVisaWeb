@@ -5,120 +5,24 @@
 html{
 	font-size: 16px;
 }
+
 header{
 	display: relative;
 	width: 100%;
-	flex-wrap: wrap;
-	padding: 4px 0;
 	font-size: 1.2rem;
 }
-header ul{
+header ul,
+header li,
+header a{
 	display: flex;
 	justify-content: center;
-	align-content: center;
 	align-items: center;
 }
-
-header img{
-	vertical-align: middle;
-}
-.wrapper{
-	background-color: rgb(0 0 170);
-	padding: 10px 0;
-	color: white;
-}
-.menu{
-	background-color: gray;
-	padding: 10px 0;
-}
-.address{
-	
-}
-.days{
-	
-}
-.phone-numbers{
-	
-}
-.address:before{
-	content: "";
-	vertical-align: middle;
-	display: inline-block;
-	background: url(../images/address-icon.png);
-	background-position: center;
-	background-size: cover;
-	width: 20px;
-	height: 30px;
-	margin-right: 10px;
-}
-.address:after{
-	content: "";
-	vertical-align: middle;
-	display: inline-block;
-	background: url(../images/line-icon.png);
-	background-position: center;
-	background-size: cover;
-	width: 1px;
-	height: 40px;
-	margin-left: 10px;;
-}
-.days:before{
-	content: "";
-	vertical-align: middle;
-	display: inline-block;
-	background: url(../images/time-icon.png);
-	background-position: center;
-	background-size: cover;
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-}
-.days:after{
-	content: "";
-	vertical-align: middle;
-	display: inline-block;
-	background: url(../images/line-icon.png);
-	background-position: center;
-	background-size: cover;
-	width: 1px;
-	height: 40px;
-	margin-left: 10px;;
-}
-.phone-number:before{
-	content: "";
-	vertical-align: middle;
-	display: inline-block;
-	background: url(../images/phone-icon.jpg);
-	background-position: center;
-	background-size: cover;
-	width: 21.67px;
-	height: 30px;
-	margin-right: 10px;
-}
-.phone-number:after{
-	content: "";
-	vertical-align: middle;
-	display: inline-block;
-	background: url(../images/line-icon.png);
-	background-position: center;
-	background-size: cover;
-	width: 1px;
-	height: 40px;
-	margin-left: 10px;;
-}
-.logo{
-	font-size: 2rem;
-}
-.logo img{
-	width: 3rem;
-}
-
-header ul li{
+header ul{
 	list-style: none;
-	margin: 0 10px;
 }
-.call-button{
-	
+header li{
+	margin: 0 10px;
 }
 header a{
 	text-decoration: none;
@@ -126,18 +30,95 @@ header a{
 }
 header a:hover{
 	text-decoration: none;
-	color: yellow;
 }
-.logo a:hover{
+.wrapper{
+	background-color: rgb(0 0 100);
+	padding: 10px 0;
 	color: white;
 }
+.wrapper li[class]:before{
+	content: "";
+	display: inline-block;
+	background-position: center;
+	background-size: cover;
+	height: 30px;
+	margin-right: 10px;
+}
+.wrapper li[class]:after{
+	content: "";
+	vertical-align: middle;
+	display: inline-block;
+	background: url(../images/line-icon.png);
+	background-position: center;
+	background-size: cover;
+	width: 1px;
+	height: 40px;
+	margin-left: 10px;;
+}
+.address:before{
+	background: url(../images/address-icon.png);
+	width: 20px;
+}
+
+.days:before{
+	background: url(../images/time-icon.png);
+	width: 30px;
+}
+.phone-number:before{
+	background: url(../images/phone-icon.jpg);
+	width: 21.67px;
+}
+
+.menu{
+	position: relative;
+	height: 37px;
+	padding: 10px 0;
+	background: rgb(250 250 250);
+}
+.menu li,
+.menu a{
+	height: 100%;
+	color: black;
+}
+.menu li>a:hover{
+	transition: 0.3s;
+	background: rgba(0,0,200,.3);
+	box-shadow: 0 0 0 10px rgba(0,0,200,.3);
+	color: white;
+	
+}
+.logo{
+	font-size: 2rem;
+}
+.logo img{
+	width: 2.2rem;
+}
+.logo a:hover{
+	color: black;
+}
+.call-button{
+	background-color: red;
+	padding: 10px 15px;
+	border-radius: 15px;
+	color: white;
+	font-size: 1rem;
+}
+.call-button:hover{
+	transition-duration: 0.4s;
+	background-color: white;
+	color: blue;
+}
+.call-button:active{
+	
+}
 main{
-	min-height: 100px;
-	width: 100%;
+	
 }
 footer{
 	width: 100%;
 	background-color: gray;
 	text-align: center;
-	padding: 5px 0;
+	padding: 10px 0;
+	font-size: 1.2rem;
+	color: white;
 }
