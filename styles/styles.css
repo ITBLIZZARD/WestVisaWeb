@@ -125,12 +125,8 @@ header a{
 .menu-list li a:hover{
 	color: white;
 }
-.services{
-	position: relative;
-	width: 66px;
-}
-.show {display: block;}
-.services:after{
+
+.dropbtn:after{
 	content: "";
 	display: inline-block;
 	background: url(../images/arrowDown-icon.png);
@@ -140,15 +136,32 @@ header a{
 	height: 10px;
 	margin-left: 5px;
 }
-#services-menu{
-	display: none;
-	position: absolute;
-	z-index:2;
-	background: red;
-	top: 50px;
-	width: 100%;
-	overflow: auto;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;	
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content li{
+	border: 1px solid;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {display: block;}
+
 .burger{
 	display: none;
 	width: 2rem;
@@ -168,4 +181,3 @@ footer{
 	font-size: 1.2rem;
 	color: white;
 }
-

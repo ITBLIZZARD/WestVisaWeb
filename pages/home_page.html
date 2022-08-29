@@ -5,10 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 		<link rel="stylesheet" href="../styles/styles.css">
 		<title>West Visa - Сайт по туризму и путешествиям</title>
+
 	</head>
 	<body>
 		<header>
-			<nav class="wrapper">javascript:void(0);
+			<nav class="wrapper">
 				<ul>
 					<li class="days">9:00 - 18:00 (пн-вс)</li>
 					<li class="phone-number"><a href="tel:+375447508844">+375 (44) 750-88-44</a></li>
@@ -20,13 +21,14 @@
 				<div class="logo"><a href=""><img src="../images/logo-icon2.png">West Visa</a></div>
 				<ul class="menu-list">
 					<li><a href="">Главная</a></li>
-					<li><a href="javascript:void(0);" class="services" onclick="myFunction()">Визы
-					</a>
-					<ul id="services-menu">
+					<li class="dropdown">
+						<a href="javascript:void(0);" onclick="myFunction()" class="dropbtn">Визы</a>
+						<ul id="myDropdown" class="dropdown-content">
 							<li>Рабочая виза</li>
 							<li>Шенген</li>
 							<li>Карта поляка</li>
-						</ul></li>
+						</ul>
+					</li>
 					<li><a href="">Новости</a></li>
 					<li><a href="">О компании</a></li>
 					<li><a href="">Контакты</a></li>
@@ -34,17 +36,31 @@
 			</nav>
 		</header>
 		<main>
-			
-			<div>
-			ujhtgfd
-			</div>
+
 		</main>
 		<footer>&copy West Visa, 2022
 		</footer>
 		<script>
-			function myFunction() {
-				document.getElementById("services-menu").classList.toggle("show");
-			}
-		</script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 	</body>
 </html>
