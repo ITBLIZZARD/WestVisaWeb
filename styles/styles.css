@@ -10,6 +10,7 @@ header{
 	display: relative;
 	width: 100%;
 	font-size: 1.2rem;
+	border-bottom: 1px solid black;
 }
 header ul,
 header li,
@@ -23,18 +24,18 @@ header ul{
 }
 header a{
 	text-decoration: none;
-	color: black;
-}
-header a:hover{
-	text-decoration: none;
-}
-.wrapper li{
-	padding: 10px 10px 10px 0;
+	color: white;
 }
 .wrapper{
 	position: relative;
 	background-color: rgb(0 0 100);
 	color: white;
+}
+.wrapper a:hover{
+	text-decoration: underline;
+}
+.wrapper li{
+	padding: 10px 10px 10px 0;
 }
 .wrapper li[class]:before{
 	content: "";
@@ -46,18 +47,13 @@ header a:hover{
 }
 .wrapper li[class]:after{
 	content: "";
-	vertical-align: middle;
 	display: inline-block;
 	background: url(../images/line-icon.png);
 	background-position: center;
 	background-size: cover;
 	width: 1px;
 	height: 40px;
-	margin-left: 10px;;
-}
-.address:before{
-	background: url(../images/address-icon.png);
-	width: 20px;
+	margin-left: 10px;
 }
 .days:before{
 	background: url(../images/time-icon.png);
@@ -66,6 +62,13 @@ header a:hover{
 .phone-number:before{
 	background: url(../images/phone-icon.jpg);
 	width: 21.67px;
+}
+.email a{
+	color: white;
+}
+.email:before{
+	background: url(../images/email-icon.jpg);
+	width: 40px;
 }
 .call-button{
 	background-color: red;
@@ -82,32 +85,69 @@ header a:hover{
 .call-button:active{
 	
 }
+/*menu*/
 .menu{
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 37px;
-	padding: 10px 0;
+	height: 57px;
 	background: rgb(250 250 250);
 }
+.menu a{
+	color:black;
+}
 .logo{
+	margin: 10px 0;
 	font-size: 2rem;
 }
 .logo img{
 	width: 2.2rem;
 }
 .menu-list{
+	height: 100%;
 	margin-left: 30px;
 }
 .menu-list li{
-	padding: 10px;
+	height: 100%;
+	padding: 0 10px;
 }
-.menu-list li>a:hover{
-	transition: 0.3s;
+.menu-list a{
+	height: 100%;
+}
+.menu-list li:hover{
+	transition: 0.4s;
 	background: rgba(0,0,200,.3);
-	box-shadow: 0 0 0 10px rgba(0,0,200,.3);
+}
+.menu-list li:hover a{
 	color: white;
+}
+.menu-list li a:hover{
+	color: white;
+}
+.services{
+	position: relative;
+	width: 66px;
+}
+.show {display: block;}
+.services:after{
+	content: "";
+	display: inline-block;
+	background: url(../images/arrowDown-icon.png);
+	background-position: center;
+	background-size: cover;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+}
+#services-menu{
+	display: none;
+	position: absolute;
+	z-index:2;
+	background: red;
+	top: 50px;
+	width: 100%;
+	overflow: auto;
 }
 .burger{
 	display: none;
@@ -117,9 +157,8 @@ header a:hover{
 	display: none;
 	position: relative;
 }
-
 main{
-	
+	position: relative;
 }
 footer{
 	width: 100%;
@@ -130,35 +169,3 @@ footer{
 	color: white;
 }
 
-@media (max-width: 480px)
-{
-	.wrapper, .menu-list{
-		display: none;
-	}
-	.burger{
-		display: flex;
-	}
-	.menu{
-		justify-content: space-between;
-		padding: 0 0 0 10px;
-	}
-	.logo, .burger{
-		padding: 5px;
-	}
-	.roll{
-		display: block;
-	}
-	.row{
-		display: flex;
-		justify-content: right;
-	}
-	.row ul{
-		display: none;
-	}
-	.row:checked ~ ul{
-		display: flex;
-		flex-direction: column;
-		position: absolute;
-		background: gray;
-	}
-}
