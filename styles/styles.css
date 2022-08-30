@@ -60,14 +60,14 @@ header a{
 	width: 30px;
 }
 .phone-number:before{
-	background: url(../images/phone-icon.jpg);
+	background: url(../images/phone-icon.png);
 	width: 21.67px;
 }
 .email a{
 	color: white;
 }
 .email:before{
-	background: url(../images/email-icon.jpg);
+	background: url(../images/email-icon.png);
 	width: 40px;
 }
 .call-button{
