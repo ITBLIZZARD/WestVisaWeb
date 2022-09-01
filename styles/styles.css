@@ -1,6 +1,7 @@
 *{
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 html{
 	font-size: 16px;
@@ -22,22 +23,26 @@ header a{
 header ul{
 	list-style: none;
 }
-header a{
-	text-decoration: none;
-	color: white;
-}
+
 .wrapper{
 	position: relative;
 	background-color: rgb(0 0 100);
 	color: white;
 }
-.wrapper a:hover{
+header a{
+	text-decoration: none;
+}
+.wrapper a{
+	color: white;
+}
+.contact-list a:hover{
 	text-decoration: underline;
 }
 .wrapper li{
 	padding: 10px 10px 10px 0;
 }
-.wrapper li[class]:before{
+
+.contact-list li[class]:before{
 	content: "";
 	display: inline-block;
 	background-position: center;
@@ -55,17 +60,68 @@ header a{
 	height: 40px;
 	margin-left: 10px;
 }
+.wrapper .days{
+	position: relative;
+}
+.wrapper .days:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .days:before{
 	background: url(../images/time-icon.png);
 	width: 30px;
 }
-.phone-number:before{
-	background: url(../images/phone-icon.png);
-	width: 21.67px;
+#wrapDays:after{
+	content: "";
+	display: inline-block;
+	background: url(../images/arrowDownWhite-icon.png);
+	background-position: center;
+	background-size: cover;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
 }
-.email a{
+.days:hover .days-content{
+	display: flex;
+}
+
+.days-content{
+	padding: 5px 10px 0 10px;
+    display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    position: absolute;
+    background-color: rgb(0 0 100);
+	left: 0;
+	top: 80%;
+	border: 1px solid white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	cursor: text;
+}
+
+.days-content li{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 0 5px 0;
 	color: white;
 }
+.days-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.phone-number:before{
+	background: url(../images/phone-icon.png);
+	width: 30px;
+	margin-right: 5px;
+}
+
 .email:before{
 	background: url(../images/email-icon.png);
 	width: 40px;
@@ -76,9 +132,10 @@ header a{
 	border-radius: 15px;
 	color: white;
 	font-size: 1rem;
+	cursor: pointer;
+	transition-duration: 0.4s;
 }
 .call-button:hover{
-	transition-duration: 0.4s;
 	background-color: white;
 	color: blue;
 }
@@ -98,7 +155,7 @@ header a{
 	color:black;
 }
 .logo{
-	margin: 10px 0;
+	margin: 10px 10px;
 	font-size: 2rem;
 }
 .logo img{
@@ -108,25 +165,18 @@ header a{
 	height: 100%;
 	margin-left: 30px;
 }
-.menu-list li{
-	height: 100%;
-	padding: 0 10px;
-}
+.menu-list li,
 .menu-list a{
 	height: 100%;
 }
-.menu-list li:hover{
-	transition: 0.4s;
-	background: rgba(0,0,200,.3);
+.menu-list a{
+	padding: 0 10px;
 }
-.menu-list li:hover a{
-	color: white;
-}
-.menu-list li a:hover{
-	color: white;
+#menu-medium{
+	display: none;
 }
 
-.dropbtn:after{
+.visabtn:after{
 	content: "";
 	display: inline-block;
 	background: url(../images/arrowDown-icon.png);
@@ -136,39 +186,111 @@ header a{
 	height: 10px;
 	margin-left: 5px;
 }
-.dropdown {
+.visa {
     position: relative;
-    display: inline-block;
+    display: block;
+	transition: 0.4s;
+}
+.visa:hover .visabtn:after,
+.days:hover #wrapDays:after
+{
+	content: "";
+	display: inline-block;
+	background: url(../images/arrowUpWhite-icon.png);
+	background-position: center;
+	background-size: cover;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
 }
 
-.dropdown-content {
+.visa:hover .visa-content{
+	display: flex;
+}
+
+.visa-content{
     display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
     position: absolute;
     background-color: white;
-    min-width: 160px;	
-    overflow: auto;
+    min-width: 280px;	
+	left: 0;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: black;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.dropdown-content li{
-	border: 1px solid;
+
+.visa-content li{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-width: 0 0 1px 0;
+	padding: 10px 0;
+	border-style: solid;
+	color: black;
+	cursor: pointer;
+	border-color: black;
 }
-.dropdown-content a {
+.visa-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
-.show {display: block;}
+.pol-visa:after{
+	content: "";
+	display: inline-block;
+	background: url(../images/arrowRight-icon.png);
+	background-position: center;
+	background-size: cover;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+}
+.pol-visa:hover:after{
+	transition: 0.4s;
+	content: "";
+	display: inline-block;
+	background: url(../images/arrowRightWhite-icon.png);
+	background-position: center;
+	background-size: cover;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+}
+.pol-visa-content{
+	display: none;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: black;
+    position: absolute;
+	left: 100%;;
+	top: -1px;
+    background-color: white;
+    min-width: 200px;	
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+.pol-visa:hover .pol-visa-content{display:block;}
+.pol-visa{
+	position: relative;
+	display: block;
+}
+.show {display: inline-block;}
 
 .burger{
 	display: none;
-	width: 2rem;
-}
-.roll{
-	display: none;
 	position: relative;
+}
+.burger-content{
+	display: none;
+	position: absolute;
+	z-index: 1;
 }
 main{
 	position: relative;
@@ -180,4 +302,51 @@ footer{
 	padding: 10px 0;
 	font-size: 1.2rem;
 	color: white;
+}
+@media (min-width: 961px)
+{
+	#menu-large li{
+		transition: 0.4s;
+	}
+	#menu-large li:hover{
+		color: white;
+		background: rgba(0,0,200,.3);
+	}
+	#menu-large li:hover a{
+		color: white;
+	}
+	#menu-large li a:hover{
+		color: white;
+	}
+}
+@media(max-width: 960px)
+{
+	.wrapper, #menu-large{display:none;}
+	.menu{height: 50px;}
+	#menu-medium{display:flex; }
+	#menu-medium li{
+		padding: 0 10px;
+	}
+	.burger{
+		display:block;
+		position: relative;
+		margin-right: 10px;
+		width: 2rem;
+		cursor: pointer;
+	}
+	.menu{
+		justify-content: space-between;
+	}
+	.logo{
+		font-size: 1.5rem;
+	}
+	.days, .phone-number{
+		font-size: 1rem;
+	}
+}
+@media(max-width: 600px;)
+{
+	.days{
+		display: none;
+	}
 }

@@ -10,8 +10,20 @@
 	<body>
 		<header>
 			<nav class="wrapper">
-				<ul>
-					<li class="days">9:00 - 18:00 (пн-вс)</li>
+				<ul class="contact-list">
+					<li class="days">
+						<div id="wrapDays">
+							<ul id="wrapDaysContent" class="days-content">
+								<li>понедельник: 8:00-00:00</li>
+								<li>вторник: 8:00-00:00</li>
+								<li>среда: 8:00-00:00</li>
+								<li>четверг: 8:00-00:00</li>
+								<li>пятница: 8:00-00:00</li>
+								<li>суббота: 8:00-18:00</li>
+								<li>воскресенье: выходной</li>
+							</ul>
+						</div>
+					</li>
 					<li class="phone-number"><a href="tel:+375447508844">+375 (44) 750-88-44</a></li>
 					<li class="email"><a href="mailto:help.westvisa@gmail.com">help.westvisa@gmail.com</a></li>
 					<li><button class="call-button">Заказать звонок</button></li>
@@ -19,15 +31,48 @@
 			</nav>
 			<nav class="menu">
 				<div class="logo"><a href=""><img src="../images/logo-icon2.png">West Visa</a></div>
-				<ul class="menu-list">
+				<ul id="menu-large" class="menu-list">
 					<li><a href="">Главная</a></li>
-					<li class="dropdown">
-						<a href="javascript:void(0);" onclick="myFunction()" class="dropbtn">Визы</a>
-						<ul id="myDropdown" class="dropdown-content">
-							<li>Рабочая виза</li>
-							<li>Шенген</li>
+					<li class="visa">
+						<a href="" class="visabtn">Визы</a>
+						<ul class="visa-content">
+							<li class="pol-visa">Польская национальная виза
+								<ul class="pol-visa-content">
+									<li>Рабочая виза</li>
+									<li>Гуманитарная виза</li>
+									<li>Студенческая виза</li>
+									<li>Приглашение на работу</li>
+								</ul>
+							</li>
 							<li>Карта поляка</li>
+							<li>Испанская виза</li>
 						</ul>
+					</li>
+					<li><a href="">Новости</a></li>
+					<li><a href="">О компании</a></li>
+					<li><a href="">Контакты</a></li>
+				</ul>
+				<ul id="menu-medium" class="contact-list">
+					<li id="days" class="days">
+						<div>
+							<ul id="wrapDaysContent" class="days-content">
+								<li>понедельник: 8:00-00:00</li>
+								<li>вторник: 8:00-00:00</li>
+								<li>среда: 8:00-00:00</li>
+								<li>четверг: 8:00-00:00</li>
+								<li>пятница: 8:00-00:00</li>
+								<li>суббота: 8:00-18:00</li>
+								<li>воскресенье: выходной</li>
+							</ul>
+						</div>
+					</li>
+					<li class="phone-number"><a href="tel:+375447508844">+375 (44) 750-88-44</a></li>
+				</ul>
+				<img onclick="showWithHold()" class="burger" src="../images/burger-icon.png">
+				<ul id="myDropdown" class="burger-content">
+					<li><a href="">Главная</a></li>
+					<li class="visa">
+						<a href="" class="visabtn">Визы</a>
 					</li>
 					<li><a href="">Новости</a></li>
 					<li><a href="">О компании</a></li>
@@ -41,26 +86,58 @@
 		<footer>&copy West Visa, 2022
 		</footer>
 		<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+			function showWithHold() {
+				document.getElementById("myDropdown").classList.toggle("show");
+			}
+			window.onclick = function(event) {
+				if (!event.target.matches('.burger')) {
+					var dropdowns = document.getElementsByClassName("burger-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+						}
+					}
+				}
+			}
+			function checkDay()
+			{
+				var date = new Date();
+				var str;
+				var day = date.getDay();
+				switch(day)
+				{
+					case 1:
+						str = "понедельник: 8:00-00:00"
+						break;
+					case 2:
+						str = "вторник: 8:00-00:00"
+						break;
+					case 3:
+						str = "среда: 8:00-00:00"
+						break;
+					case 4:
+						str = "четверг: 8:00-00:00"
+						break;
+					case 5:
+						str = "пятница: 8:00-00:00"
+						break;
+					case 6:
+						str = "суббота: 8:00-18:00"
+						break;
+					case 7:
+						str = "воскресенье: выходной"
+						break;
+				}
+				//document.getElementById("wrapDays").append(str);
+				var days = document.getElementsByClassName("days");
+				var i;
+				for(i = 0; i < days.length; ++i)
+					days[i].firstElementChild.append(str);
+				document.getElementById("wrapDaysContent").children[day-1].style.color = 'red';
+			}
+			checkDay();
 </script>
 	</body>
 </html>
