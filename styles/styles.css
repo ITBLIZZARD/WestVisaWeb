@@ -8,7 +8,7 @@ html{
 }
 
 header{
-	display: relative;
+	position: relative;
 	width: 100%;
 	font-size: 1.2rem;
 	border-bottom: 1px solid black;
@@ -26,7 +26,7 @@ header ul{
 
 .wrapper{
 	position: relative;
-	background-color: rgb(0 0 100);
+	background: rgb(0 0 100);
 	color: white;
 }
 header a{
@@ -34,12 +34,17 @@ header a{
 }
 .wrapper a{
 	color: white;
+	background: inherit;
+}
+.contact-list{
+	background: inherit;
 }
 .contact-list a:hover{
 	text-decoration: underline;
 }
 .wrapper li{
 	padding: 10px 10px 10px 0;
+	background: inherit;
 }
 
 .contact-list li[class]:before{
@@ -47,8 +52,8 @@ header a{
 	display: inline-block;
 	background-position: center;
 	background-size: cover;
-	height: 30px;
-	margin-right: 10px;
+	height: 2em;
+	margin-right: 5px;
 }
 .wrapper li[class]:after{
 	content: "";
@@ -62,15 +67,23 @@ header a{
 }
 .wrapper .days{
 	position: relative;
+	background: inherit;
 }
 .wrapper .days:hover{
 	text-decoration: underline;
 	cursor: pointer;
 }
-
+.days{
+	position: relative;
+	cursor: pointer;
+	background: inherit;
+}
+.days div{
+	background: inherit;
+}
 .days:before{
 	background: url(../images/time-icon.png);
-	width: 30px;
+	width: 2em;
 }
 #wrapDays:after{
 	content: "";
@@ -93,7 +106,8 @@ header a{
 	align-items: center;
 	flex-direction: column;
     position: absolute;
-    background-color: rgb(0 0 100);
+	color: inherit;
+	background: inherit;
 	left: 0;
 	top: 80%;
 	border: 1px solid white;
@@ -108,7 +122,6 @@ header a{
 	justify-content: center;
 	align-items: center;
 	padding: 0 0 5px 0;
-	color: white;
 }
 .days-content a {
     color: black;
@@ -118,13 +131,13 @@ header a{
 }
 .phone-number:before{
 	background: url(../images/phone-icon.png);
-	width: 30px;
+	width: 2em;
 	margin-right: 5px;
 }
 
 .email:before{
 	background: url(../images/email-icon.png);
-	width: 40px;
+	width: 2.5em;
 }
 .call-button{
 	background-color: red;
@@ -150,20 +163,23 @@ header a{
 	align-items: center;
 	height: 57px;
 	background: rgb(250 250 250);
+	color: black;
+	font-size: 2rem;
 }
 .menu a{
 	color:black;
 }
 .logo{
-	margin: 10px 10px;
-	font-size: 2rem;
+	margin: 10px 0 10px 10px;
+	font-size: 1em;
 }
 .logo img{
 	width: 2.2rem;
 }
 .menu-list{
 	height: 100%;
-	margin-left: 30px;
+	margin-left: 2em;
+	font-size: 0.6em;
 }
 .menu-list li,
 .menu-list a{
@@ -269,7 +285,7 @@ header a{
 	border-style: solid;
 	border-color: black;
     position: absolute;
-	left: 100%;;
+	left: 100%;
 	top: -1px;
     background-color: white;
     min-width: 200px;	
@@ -281,17 +297,37 @@ header a{
 	position: relative;
 	display: block;
 }
-.show {display: inline-block;}
-
-.burger{
-	display: none;
+/*gfgdgdfg*/
+.burger-image{
+  cursor: pointer;
+  width: 2.5em;
+}
+.burger {
 	position: relative;
-}
-.burger-content{
 	display: none;
-	position: absolute;
-	z-index: 1;
+	font-size: 0.7em;
+	padding: 0 10px;
 }
+
+.dropdown-content {
+  display: none;
+  justify-content: left; flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #f1f1f1;
+  width: 20em;
+  padding: 5px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: flex; }
+/*ggdgdfg*/
+
 main{
 	position: relative;
 }
@@ -321,32 +357,46 @@ footer{
 }
 @media(max-width: 960px)
 {
-	.wrapper, #menu-large{display:none;}
-	.menu{height: 50px;}
-	#menu-medium{display:flex; }
-	#menu-medium li{
-		padding: 0 10px;
+	.wrapper, #menu-large{
+		display:none;
 	}
-	.burger{
-		display:block;
-		position: relative;
+	.burger{display:flex;justify-content: left; flex-direction: column;}
+	.menu{
+		height: 50px;
+	}
+	#menu-medium{
+		display:flex; 
+		justify-content: space-between; 
+		width: 370px;
+		font-size: 0.6em;
 		margin-right: 10px;
-		width: 2rem;
-		cursor: pointer;
 	}
+	#menu-medium>li{ 
+		padding: 0 5px;
+	}
+
 	.menu{
 		justify-content: space-between;
 	}
-	.logo{
+	.menu{
 		font-size: 1.5rem;
 	}
 	.days, .phone-number{
-		font-size: 1rem;
+		
 	}
+	.days-content{
+		width: 190px;
+	}
+	.days:before{
+		
+	}
+
 }
-@media(max-width: 600px;)
+@media(max-width: 600px)
 {
 	.days{
 		display: none;
 	}
+	#menu-medium { width: auto;}
+	.menu{ font-size: 1.2rem;}
 }

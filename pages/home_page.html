@@ -12,8 +12,8 @@
 			<nav class="wrapper">
 				<ul class="contact-list">
 					<li class="days">
-						<div id="wrapDays">
-							<ul id="wrapDaysContent" class="days-content">
+						<div>
+							<ul class="days-content">
 								<li>понедельник: 8:00-00:00</li>
 								<li>вторник: 8:00-00:00</li>
 								<li>среда: 8:00-00:00</li>
@@ -53,9 +53,9 @@
 					<li><a href="">Контакты</a></li>
 				</ul>
 				<ul id="menu-medium" class="contact-list">
-					<li id="days" class="days">
+					<li class="days">
 						<div>
-							<ul id="wrapDaysContent" class="days-content">
+							<ul class="days-content">
 								<li>понедельник: 8:00-00:00</li>
 								<li>вторник: 8:00-00:00</li>
 								<li>среда: 8:00-00:00</li>
@@ -68,35 +68,37 @@
 					</li>
 					<li class="phone-number"><a href="tel:+375447508844">+375 (44) 750-88-44</a></li>
 				</ul>
-				<img onclick="showWithHold()" class="burger" src="../images/burger-icon.png">
-				<ul id="myDropdown" class="burger-content">
-					<li><a href="">Главная</a></li>
-					<li class="visa">
-						<a href="" class="visabtn">Визы</a>
-					</li>
-					<li><a href="">Новости</a></li>
-					<li><a href="">О компании</a></li>
-					<li><a href="">Контакты</a></li>
-				</ul>
+				<div onclick="myFunction()" class="burger">
+					<img class="burger-image" src="../images/burger-icon.png">
+					<ul id="myDropdown" class="dropdown-content">
+						<li><a href="">Главная</a></li>
+						<li class="visa">
+							<a href="" class="visabtn">Визы</a>
+						</li>
+						<li><a href="">Новости</a></li>
+						<li><a href="">О компании</a></li>
+						<li><a href="">Контакты</a></li>
+					</ul>
+				</div>
 			</nav>
 		</header>
 		<main>
-
+			
 		</main>
 		<footer>&copy West Visa, 2022
 		</footer>
 		<script>
-			function showWithHold() {
+			function myFunction() {
 				document.getElementById("myDropdown").classList.toggle("show");
 			}
 			window.onclick = function(event) {
 				if (!event.target.matches('.burger')) {
-					var dropdowns = document.getElementsByClassName("burger-content");
+					var dropdowns = document.getElementsByClassName("dropdown-content");
 					var i;
 					for (i = 0; i < dropdowns.length; i++) {
 						var openDropdown = dropdowns[i];
 						if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
+							openDropdown.classList.remove('show');
 						}
 					}
 				}
@@ -130,12 +132,13 @@
 						str = "воскресенье: выходной"
 						break;
 				}
-				//document.getElementById("wrapDays").append(str);
 				var days = document.getElementsByClassName("days");
 				var i;
 				for(i = 0; i < days.length; ++i)
 					days[i].firstElementChild.append(str);
-				document.getElementById("wrapDaysContent").children[day-1].style.color = 'red';
+				var daysContent = document.getElementsByClassName("days-content");
+				for(i = 0; i < daysContent.length; ++i)
+					daysContent[i].children[day-1].style.color = 'red';
 			}
 			checkDay();
 </script>
